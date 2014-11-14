@@ -1,0 +1,137 @@
+#!/bin/bash
+
+dd of=$1 bs=1 seek=1536 count=4 conv=notrunc <<< $'\x42\x52\x46\x52' 2>/dev/null
+dd if=/dev/zero of=$1 bs=1 count=480 conv=notrunc 2>/dev/null
+dd of=$1 bs=1 count=16 conv=notrunc <<< $'\x2A\x2A\x2A\x2A\x50\x41\x52\x54\x49\x4E\x46\x4F\x2A\x2A\x2A\x2A' 2>/dev/null
+#48 \x58\x42\x4F\x58\x20\x53\x48\x45\x4C\x4C\x20\x20\x20\x20\x20\x20
+dd of=$1 bs=1 seek=48 count=16 conv=notrunc <<< $'\x58\x42\x4F\x58\x20\x53\x48\x45\x4C\x4C\x20\x20\x20\x20\x20\x20' 2>/dev/null
+#67,99,131,163,195 \x80
+dd of=$1 bs=1 seek=67 count=1 conv=notrunc <<< $'\x80' 2>/dev/null
+dd of=$1 bs=1 seek=99 count=1 conv=notrunc <<< $'\x80' 2>/dev/null
+dd of=$1 bs=1 seek=131 count=1 conv=notrunc <<< $'\x80' 2>/dev/null
+dd of=$1 bs=1 seek=163 count=1 conv=notrunc <<< $'\x80' 2>/dev/null
+dd of=$1 bs=1 seek=195 count=1 conv=notrunc <<< $'\x80' 2>/dev/null
+#69 \xF4\x55
+dd of=$1 bs=1 seek=69 count=2 conv=notrunc <<< $'\xf4\x55' 2>/dev/null
+#72 \xB0\x96\x98
+dd of=$1 bs=1 seek=72 count=3 conv=notrunc <<< $'\xb0\x96\x98' 2>/dev/null
+#80 \x58\x42\x4F\x58\x20\x44\x41\x54\x41\x20\x20\x20\x20\x20\x20\x20
+dd of=$1 bs=1 seek=80 count=16 conv=notrunc <<< $'\x58\x42\x4F\x58\x20\x44\x41\x54\x41\x20\x20\x20\x20\x20\x20\x20' 2>/dev/null
+#101 \x54\x46
+dd of=$1 bs=1 seek=101 count=2 conv=notrunc <<< $'\x54\x46' 2>/dev/null
+#105 \xA0\x0F
+dd of=$1 bs=1 seek=105 count=2 conv=notrunc <<< $'\xa0\x0f' 2>/dev/null
+#112 \x58\x42\x4F\x58\x20\x47\x41\x4D\x45\x20\x53\x57\x41\x50\x20\x31
+dd of=$1 bs=1 seek=112 count=16 conv=notrunc <<< $'\x58\x42\x4F\x58\x20\x47\x41\x4D\x45\x20\x53\x57\x41\x50\x20\x31' 2>/dev/null
+#133 \x04
+dd of=$1 bs=1 seek=133 count=1 conv=notrunc <<< $'\x04' 2>/dev/null
+#137 \x70\x17
+dd of=$1 bs=1 seek=137 count=2 conv=notrunc <<< $'\x70\x17' 2>/dev/null
+#144 \x58\x42\x4F\x58\x20\x47\x41\x4D\x45\x20\x53\x57\x41\x50\x20\x32
+dd of=$1 bs=1 seek=144 count=16 conv=notrunc <<< $'\x58\x42\x4F\x58\x20\x47\x41\x4D\x45\x20\x53\x57\x41\x50\x20\x32' 2>/dev/null
+#165 \x74\x17
+dd of=$1 bs=1 seek=165 count=2 conv=notrunc <<< $'\x74\x17' 2>/dev/null
+#169 \x70\x17
+dd of=$1 bs=1 seek=169 count=2 conv=notrunc <<< $'\x70\x17' 2>/dev/null
+#176 \x58\x42\x4F\x58\x20\x47\x41\x4D\x45\x20\x53\x57\x41\x50\x20\x33
+dd of=$1 bs=1 seek=176 count=16 conv=notrunc <<< $'\x58\x42\x4F\x58\x20\x47\x41\x4D\x45\x20\x53\x57\x41\x50\x20\x33' 2>/dev/null
+#197 \xE4\x2E
+dd of=$1 bs=1 seek=197 count=2 conv=notrunc <<< $'\xe4\x2e' 2>/dev/null
+#201 \x70\x17
+dd of=$1 bs=1 seek=201 count=2 conv=notrunc <<< $'\x70\x17' 2>/dev/null
+#208 \x58\x42\x4F\x58\x20\x46\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+dd of=$1 bs=1 seek=208 count=16 conv=notrunc <<< $'\x58\x42\x4F\x58\x20\x46\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20' 2>/dev/null
+#227 \x80\xB0\x8A\xEE
+dd of=$1 bs=1 seek=227 count=4 conv=notrunc <<< $'\x80\xB0\x8A\xEE' 2>/dev/null
+#232 \x50\x75\x11
+dd of=$1 bs=1 seek=232 count=3 conv=notrunc <<< $'\x50\x75\x11' 2>/dev/null
+#240 \x58\x42\x4F\x58\x20\x47\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+dd of=$1 bs=1 seek=240 count=16 conv=notrunc <<< $'\x58\x42\x4F\x58\x20\x47\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20' 2>/dev/null
+#272 \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+dd of=$1 bs=1 seek=272 count=16 conv=notrunc <<< $'\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20' 2>/dev/null
+#304 \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+dd of=$1 bs=1 seek=304 count=16 conv=notrunc <<< $'\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20' 2>/dev/null
+#336 \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+dd of=$1 bs=1 seek=336 count=16 conv=notrunc <<< $'\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20' 2>/dev/null
+#368 \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+dd of=$1 bs=1 seek=368 count=16 conv=notrunc <<< $'\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20' 2>/dev/null
+#400 \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+dd of=$1 bs=1 seek=400 count=16 conv=notrunc <<< $'\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20' 2>/dev/null
+#432 \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+dd of=$1 bs=1 seek=432 count=16 conv=notrunc <<< $'\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20' 2>/dev/null
+#464 \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20" 2>/dev/null
+dd of=$1 bs=1 seek=464 count=16 conv=notrunc <<< $'\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20' 2>/dev/null
+
+dd if=/dev/zero of=$1 bs=1 seek=524288 count=19 conv=notrunc 2>/dev/null
+dd of=$1 bs=1 seek=524288 count=9 conv=notrunc <<< $'\x46\x41\x54\x58\x06\x91\x50\x50\x20' 2>/dev/null
+dd if=/dev/zero of=$1 bs=1 seek=786956288 count=19 conv=notrunc 2>/dev/null
+dd of=$1 bs=1 seek=786956288 count=9 conv=notrunc <<< $'\x46\x41\x54\x58\x06\x91\x50\x50\x20' 2>/dev/null
+dd if=/dev/zero of=$1 bs=1 seek=1573388288 count=19 conv=notrunc 2>/dev/null
+dd of=$1 bs=1 seek=1573388288 count=9 conv=notrunc <<< $'\x46\x41\x54\x58\x06\x91\x50\x50\x20' 2>/dev/null
+dd if=/dev/zero of=$1 bs=1 seek=2359820288 count=19 conv=notrunc 2>/dev/null
+dd of=$1 bs=1 seek=2359820288 count=9 conv=notrunc <<< $'\x46\x41\x54\x58\x06\x91\x50\x50\x20' 2>/dev/null
+dd if=/dev/zero of=$1 bs=1 seek=2884108288 count=19 conv=notrunc 2>/dev/null
+dd of=$1 bs=1 seek=2884108288 count=9 conv=notrunc <<< $'\x46\x41\x54\x58\x06\x91\x50\x50\x20' 2>/dev/null
+dd if=/dev/zero of=$1 bs=1 seek=8004132864 count=19 conv=notrunc 2>/dev/null
+dd of=$1 bs=1 seek=8004132864 count=9 conv=notrunc <<< $'\x46\x41\x54\x58\x06\x91\x50\x50\x20' 2>/dev/null
+dd of=$1 bs=1 seek=524300 count=1 conv=notrunc <<< $'\x01' 2>/dev/null
+dd of=$1 bs=1 seek=786956300 count=1 conv=notrunc <<< $'\x01' 2>/dev/null
+dd of=$1 bs=1 seek=1573388300 count=1 conv=notrunc <<< $'\x01' 2>/dev/null
+dd of=$1 bs=1 seek=2359820300 count=1 conv=notrunc <<< $'\x01' 2>/dev/null
+dd of=$1 bs=1 seek=2884108300 count=1 conv=notrunc <<< $'\x01' 2>/dev/null
+dd of=$1 bs=1 seek=8004132876 count=1 conv=notrunc <<< $'\x01' 2>/dev/null
+
+for i in {524306..528387}
+do
+   dd of=$1 bs=1 seek=$i count=1 conv=notrunc <<< $'\xff' 2>/dev/null
+done
+for i in {786956306..786960387}
+do
+   dd of=$1 bs=1 seek=$i count=1 conv=notrunc <<< $'\xff' 2>/dev/null
+done
+for i in {1573388306..1573392387}
+do
+   dd of=$1 bs=1 seek=$i count=1 conv=notrunc <<< $'\xff' 2>/dev/null
+done
+for i in {2359820306..2359824387}
+do
+   dd of=$1 bs=1 seek=$i count=1 conv=notrunc <<< $'\xff' 2>/dev/null
+done
+for i in {2884108306..2884112391}
+do
+   dd of=$1 bs=1 seek=$i count=1 conv=notrunc <<< $'\xff' 2>/dev/null
+done
+for i in {8004132882..8004136963}
+do
+   dd of=$1 bs=1 seek=$i count=1 conv=notrunc <<< $'\xff' 2>/dev/null
+done
+for i in {626688..643071}
+do
+   dd of=$1 bs=1 seek=$i count=1 conv=notrunc <<< $'\xff' 2>/dev/null
+done
+for i in {787058688..787075071}
+do
+   dd of=$1 bs=1 seek=$i count=1 conv=notrunc <<< $'\xff' 2>/dev/null
+done
+for i in {1573490688..1573507071}
+do
+   dd of=$1 bs=1 seek=$i count=1 conv=notrunc <<< $'\xff' 2>/dev/null
+done
+for i in {2359889920..2359906303}
+do
+   dd of=$1 bs=1 seek=$i count=1 conv=notrunc <<< $'\xff' 2>/dev/null
+done
+for i in {2885365760..2885382143}
+do
+   dd of=$1 bs=1 seek=$i count=1 conv=notrunc <<< $'\xff' 2>/dev/null
+done
+for i in {8004210688..8004227071}
+do
+   dd of=$1 bs=1 seek=$i count=1 conv=notrunc <<< $'\xff' 2>/dev/null
+done
+dd of=$1 bs=1 seek=528384 count=1 conv=notrunc <<< $'\xf8' 2>/dev/null
+dd of=$1 bs=1 seek=786960384 count=1 conv=notrunc <<< $'\xf8' 2>/dev/null
+dd of=$1 bs=1 seek=1573392384 count=1 conv=notrunc <<< $'\xf8' 2>/dev/null
+dd of=$1 bs=1 seek=2359824384 count=1 conv=notrunc <<< $'\xf8' 2>/dev/null
+dd of=$1 bs=1 seek=2884112384 count=1 conv=notrunc <<< $'\xf8' 2>/dev/null
+dd of=$1 bs=1 seek=8004136960 count=1 conv=notrunc <<< $'\xf8' 2>/dev/null
